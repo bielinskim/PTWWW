@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+}
+header {
+    
+   background-color: #CE5B78;
+   color: white;
+   font-size: 40px;
+   text-align: center;
+   padding: 30px;
+   min-width: 100%;
+}
+#form1 {
+    background-color: #e6e6e6;
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+}
+button {
+  background-color: #CE5B78;
+  border: none;
+  color: white;
+  padding: 13px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+article {
+  float: left;
+  margin-left: 10%;
+  margin-bottom: 1%;
+  margin-right: 10%;
+  margin-top: 5%;
+  padding: 20px;
+  width: auto;
+  border-left: 3px solid #CE5B78;
+  border-bottom: 2px solid gray;
+  border-right: 2px solid gray;
+  border-top: 2px solid gray;
+}
+section {
+  float: left;
+  margin-left: 10%;
+  margin-bottom: 1%;
+  margin-right: 10%;
+  padding: 20px;
+  width: auto;
+  border-left: 3px solid #CE5B78;
+  border-bottom: 2px solid gray;
+  border-right: 2px solid gray;
+  border-top: 2px solid gray;
+}
+#comments {
+    width: 1000px;
+}
+.date {
+    font-size: 14px;
+}
+nav {
+  float: left;
+  width: 100%;
+  font-size: 120%;
+  background: #00284d;
+}
+a:link, a:visited {
+  background-color: #ff8a80;
+  color: white;
+  width: 50%;
+  height: 50px;
+  padding: 14px;
+  text-align: center;
+  text-decoration: none;
+  float: left;
+  display: block;
+  margin: 0;
+}
+a:hover, a:active {
+background-color: #ff6f61;
+}
