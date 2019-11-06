@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Cwiczenia 04</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+    
+ function add()
+ {
+     
+     var table = document.getElementById("table1");
+     var newtr = document.createElement("tr");
+     var newfirstname = document.createElement("td");
+     var newlastname = document.createElement("td");
+     var newemail = document.createElement("td");
+     var newage = document.createElement("td");
+     var newdate = document.createElement("td");
+     var newgender = document.createElement("td");
+     var newgroup = document.createElement("td");
+     newfirstname.innerHTML = document.getElementById("firstname").value;
+     newtr.appendChild(newfirstname);
+     newlastname.innerHTML = document.getElementById("lastname").value;      
+     newtr.appendChild(newlastname);
+     newemail.innerHTML = document.getElementById("email").value;
+     newtr.appendChild(newemail);
+     newage.innerHTML = document.getElementById("age").value;
+     newtr.appendChild(newage);
+     newdate.innerHTML = document.getElementById("date").value;
+     newtr.appendChild(newdate);
+     if(document.getElementById("male").checked)
+     {
+     newgender.innerHTML = "Mężczyzna";
+     newtr.appendChild(newgender);
+     }
+     else if(document.getElementById("female").checked)
+     {
+     newgender.innerHTML = "Kobieta";
+     newtr.appendChild(newgender);
+     }
+     if(document.getElementById("group").value==="fa")
+     {
+     newgroup.innerHTML = "Rodzina";
+     newtr.className = "tableFamily";
+     newtr.appendChild(newgroup);
+     }
+     else if(document.getElementById("group").value==="fr")
+     {
+     newgroup.innerHTML = "Przyjaciele";
+     newtr.className = "tableFriends";
+     newtr.appendChild(newgroup);
+     }
+     else if(document.getElementById("group").value==="w")
+     {
+     newgroup.innerHTML = "Praca";
+     newtr.className = "tableWork";
+     newtr.appendChild(newgroup);    
+     }
+     else if(document.getElementById("group").value==="df")
+     {
+     newgroup.innerHTML = "Znajomi";
+     newtr.className = "tableFellows";
+     newtr.appendChild(newgroup);    
+     } 
+     table.appendChild(newtr);    
+     /*
+     var table = document.getElementById("table1");
+     var row = table.insertRow(-1);
+     var cell1 = row.insertCell(0);               
+     var cell2 = row.insertCell(1);
+     var cell3 = row.insertCell(2);
+     var cell4 = row.insertCell(3);
+     var cell5 = row.insertCell(4);
+     var cell6 = row.insertCell(5);
+     var cell7 = row.insertCell(6);
+     cell1.innerHTML = document.getElementById("firstname").value;    
+     cell2.innerHTML =  document.getElementById("lastname").value;
+     cell3.innerHTML =  document.getElementById("email").value;
+     cell4.innerHTML =  document.getElementById("age").value;
+     cell5.innerHTML =  document.getElementById("date").value;
+     if(document.getElementById("male").value==="m")
+     {
+     cell6.innerHTML = "Mężczyzna";
+     }
+     else if(document.getElementById("female").value==="f")
+     {
+     cell6.innerHTML = "Kobieta";
+     }
+     if(document.getElementById("group").value==="fa")
+     {
+     cell7.innerHTML = "Rodzina";
+     row.className = "tableFamily";
+     }
+     else if(document.getElementById("group").value==="fr")
+     {
+     cell7.innerHTML = "Przyjaciele";
+     row.className = "tableFriends";
+     }
+     else if(document.getElementById("group").value==="w")
+     {
+     cell7.innerHTML = "Praca"; 
+     row.className = "tableWork";
+     }
+     else if(document.getElementById("group").value==="df")
+     {
+     cell7.innerHTML = "Znajomi";   
+     row.className = "tableFellows";
+     }
+     */
+ }
+ </script>
+</head>
+
+<body>
+
+<header>
+   <h1>Podstawy technologii WWW</h1>
+   <p>Style dla wybranych</p>
+</header>
+
+<section>
+  <nav>   
+     <a style="background-color:#ff6f61" href="index.html">Strona główna</a>
+     <a href="strona.html">Strona</a>
+     <a href="about.html">About</a>
+  </nav>
+  
+  <article>
+      
+<p></p>
+<div style="min-height: 500px">
+<table id="table1">
+    <tr>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Email</th>
+        <th>Wiek</th>
+        <th>Data urodzenia</th>
+        <th>Płeć</th>
+        <th>Grupa</th> 
+    </tr>
+</table>
+</div>
+<form>
+  Imię:<br>
+  <input type="text" id="firstname" name="firstname" placeholder="Wprowadz imię:"><br>
+  Nazwisko:<br>
+  <input type="text" id="lastname" name="lastname" placeholder="Wprowadz nazwisko:"><br>
+  Email:<br>
+  <input type="email" id="email" name="email" placeholder="Wprowadz adres email:"><br>
+  Wiek:<br>
+  <input type="number" id="age" name="age" placeholder="Wprowadz wiek:"><br>
+  Data urodzenia:<br>
+  <input type="date" id="date" name="date"><br>
+  Płeć:<br>
+  <input type="radio" id="male" name="gender" value="m">Mężczyzna<br>
+  <input type="radio" id="female" name="gender" value="f">Kobieta<br>
+  Grupa:<br>
+  <select id="group" name="group">
+       <option value="fa">Rodzina</option>
+        <option value="fr">Przyjaciele</option>
+        <option value="w">Praca</option>
+        <option value="df">Znajomi</option>
+      </select> 
+<button type="button" onclick="add()">Dodaj</button>
+</form>
+  
+  </article>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fae6ff;
+  color: black;
+  width: 100%;
+  min-height: 100%;
+
+}
+header {
+   background-color: #cc00ff;
+   color: white;
+   font-size: 60px;
+   text-align: center;
+   width: 100%;
+   height: 300px;
+   padding: 40px;
+}
+nav {
+  width: 100%;
+  height: 100%;
+  font-size: 120%;
+  background: #eb99ff;
+}
+aside {
+    background-color: #eb99ff;
+    float: left;
+    width: 10%;
+}
+section {
+    float: right;
+    width: 90%;
+}
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 600px) {
+  aside, section {
+    width: 100%;
+  }
+}
+@media (min-height: 200px) {
+  aside, section {
+      min-height: 220px;
+  }
+}
+footer {
+  float: right;
+  background-color: #cc00ff;
+  text-align: center;
+  color: white;
+}
+
+a:link, a:visited {
+  background-color: #eb99ff;
+  color: white;
+  width: 25%;
+  height: 50px;
+  padding: 14px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  float: left;
+}
+a:hover, a:active {
+  background-color: #e580ff;
+}
+table, th {
+  border: 1px solid black;
+  border-collapse: collapse;
+  background-color: #f5ccff;
+  text-align: center;
+}
+table, tr, td {
+    color: black;
+    border: 1px solid black;
+}
+tr:nth-child(even) {
+  background-color: #f0b3ff;
+}
+th {
+    background-color: #eb99ff;
+}

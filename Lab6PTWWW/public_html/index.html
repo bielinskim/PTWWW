@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kółko i krzyżyk</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script>
+           var round =0;
+           var t = 0;
+       function start(nick1, nick2)
+           {
+               document.getElementById("form1").style.display = "none";
+               document.getElementById("board").style.display = "block";
+               document.getElementById("wyniki").style.display = "block";
+               document.getElementById("player11").innerHTML = nick1;
+               document.getElementById("player22").innerHTML = nick2;
+               document.getElementById("player11").className = "turn";
+               alert("Zaczyna: "+document.getElementById("player11").innerHTML);
+           }
+       function newround()
+            {
+            document.getElementById("1").className = "none";
+            document.getElementById("2").className = "none";
+            document.getElementById("3").className = "none";
+            document.getElementById("4").className = "none";
+            document.getElementById("5").className = "none";
+            document.getElementById("6").className = "none";
+            document.getElementById("7").className = "none";
+            document.getElementById("8").className = "none";
+            document.getElementById("9").className = "none";
+            document.getElementById("btn2").style.display = "none";
+            t=0;
+            round++;
+            if(round%2===0)
+            {
+               document.getElementById("player11").className = "turn";
+               alert("Zaczyna: "+document.getElementById("player11").innerHTML);
+            }
+            else
+            {
+               document.getElementById("player22").className = "turn";
+               alert("Zaczyna: "+document.getElementById("player22").innerHTML);
+            }
+            }
+       function clickk(id)
+            {   
+                if(!document.getElementById(id).className||document.getElementById(id).className === "none")
+                {
+                if(document.getElementById("player11").className === "turn")
+                {
+                document.getElementById(id).className = "cross";
+                document.getElementById("player22").className = "turn";
+                document.getElementById("player11").classList.remove("turn");
+                t++;
+                }
+                else if(document.getElementById("player22").className === "turn")
+                {
+                    document.getElementById(id).className = "circle";
+                    document.getElementById("player11").className = "turn";
+                    document.getElementById("player22").classList.remove("turn");
+                t++;
+                }
+                check();
+                }
+            }
+       function check()
+            {
+                if(document.getElementById("1").className === "circle"&&document.getElementById("2").className === "circle"&&document.getElementById("3").className === "circle")
+                {
+                  player1win();
+                }
+                else if(document.getElementById("4").className === "circle"&&document.getElementById("5").className === "circle"&&document.getElementById("6").className === "circle")
+                {
+                  player1win();
+                }
+                else if(document.getElementById("7").className === "circle"&&document.getElementById("8").className === "circle"&&document.getElementById("9").className === "circle")
+                {
+                    player1win();
+                }
+                else if(document.getElementById("1").className === "circle"&&document.getElementById("4").className === "circle"&&document.getElementById("7").className === "circle")
+                {
+                    player1win();
+                }
+                else if(document.getElementById("2").className === "circle"&&document.getElementById("5").className === "circle"&&document.getElementById("8").className === "circle")
+                {
+                    player1win();
+                }
+                else if(document.getElementById("3").className === "circle"&&document.getElementById("6").className === "circle"&&document.getElementById("9").className === "circle")
+                {
+                    player1win();
+                }
+                else if(document.getElementById("1").className === "circle"&&document.getElementById("5").className === "circle"&&document.getElementById("9").className === "circle")
+                {
+                    player1win();
+                }
+                else if(document.getElementById("3").className === "circle"&&document.getElementById("5").className === "circle"&&document.getElementById("7").className === "circle")
+                {
+                    player1win();
+                }
+                else if(document.getElementById("1").className === "cross"&&document.getElementById("2").className === "cross"&&document.getElementById("3").className === "cross")
+                {
+                   player2win();
+                }
+                else if(document.getElementById("4").className === "cross"&&document.getElementById("5").className === "cross"&&document.getElementById("6").className === "cross")
+                {
+                   player2win();
+                }
+                else if(document.getElementById("7").className === "cross"&&document.getElementById("8").className === "cross"&&document.getElementById("9").className === "cross")
+                {
+                    player2win();
+                }
+                else if(document.getElementById("1").className === "cross"&&document.getElementById("4").className === "cross"&&document.getElementById("7").className === "cross")
+                {
+                    player2win();
+                }
+                else if(document.getElementById("2").className === "cross"&&document.getElementById("5").className === "cross"&&document.getElementById("8").className === "cross")
+                {
+                    player2win();
+                }
+                else if(document.getElementById("3").className === "cross"&&document.getElementById("6").className === "cross"&&document.getElementById("9").className === "cross")
+                {
+                    player2win();
+                }
+                else if(document.getElementById("1").className === "cross"&&document.getElementById("5").className === "cross"&&document.getElementById("9").className === "cross")
+                {
+                    player2win();
+                }
+                else if(document.getElementById("3").className === "cross"&&document.getElementById("5").className === "cross"&&document.getElementById("7").className === "cross")
+                {
+                     player2win();  
+                }
+                else if(t===9)
+                {
+                    remis();
+                }
+            }
+        function player1win()
+        {
+                    alert("Wygral: "+document.getElementById("player22").innerHTML);
+                    document.getElementById("player2wins").innerHTML++;
+                    document.getElementById("btn2").style.display = "block";
+                    var x = document.querySelectorAll("table#board td");
+                    for(var i=0; i<x.length; i++)
+                    {
+                     x[i].className = "disableclick";
+                    }
+        }
+        function player2win()
+        {
+                    alert("Wygral: "+document.getElementById("player11").innerHTML);
+                    document.getElementById("player1wins").innerHTML++;
+                    document.getElementById("btn2").style.display = "block";
+                    var x = document.querySelectorAll("table#board td");
+                    for(var i=0; i<x.length; i++)
+                    {
+                     x[i].className = "disableclick";
+                    }
+        }
+        function remis()
+        {
+                    alert("Remis!");
+                    document.getElementById("remises").innerHTML++;
+                    document.getElementById("btn2").style.display = "block";
+                    var x = document.querySelectorAll("table#board td");
+                    for(var i=0; i<x.length; i++)
+                    {
+                     x[i].className = "disableclick";
+                    }
+        }
+
+        </script>
+    </head>
+    <body>
+      <header>
+            <h1>Kółko i krzyżyk</h1>
+      </header>
+        <section>
+        <form id="form1">
+        Nick pierwszego gracza:
+        <input id="nick1" type="text" name="nick" value="Gracz 1" required><span class="crossicon"></span><br>
+        Nick drugiego gracza:
+        <input id="nick2" type="text" name="nick" value="Gracz 2" required><span class="circleicon"></span><br><br>
+        <button id="btn1" type="button" onclick="start(nick1.value, nick2.value)">Play!</button>
+         </form>
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <table id="board" style="display:none">
+            <tr>
+                <td id="1" onclick="clickk(id)"></td>
+                <td id="2" onclick="clickk(id)"></td>
+                <td id="3" onclick="clickk(id)"></td>
+            </tr>
+            <tr>
+                 <td id="4" onclick="clickk(id)"></td>
+                 <td id="5" onclick="clickk(id)"></td>
+                 <td id="6" onclick="clickk(id)"></td>   
+            </tr> 
+            <tr>
+                <td id="7" onclick="clickk(id)"></td>
+                <td id="8" onclick="clickk(id)"></td>
+                <td id="9" onclick="clickk(id)"></td>       
+            </tr>
+        </table> 
+      <table id="wyniki" style="display:none">
+          <tr>
+             <th colspan="2">Gracze:</th>
+          </tr>
+          <tr>
+             <td id="player11"></td>
+             <td id="player22"></td>
+         </tr>
+         <tr>
+             <td id="symbol1"><span class="crossicon"></span></td>
+             <td id="symbol2"><span class="circleicon"></span></td>
+         </tr>
+         <tr>
+             <th colspan="2">Zwycięstwa:</th>
+         </tr>
+         <tr>
+             <td id="player1wins">0</td>
+             <td id="player2wins">0</td>
+         </tr>
+         <tr>
+             <th colspan="2">Remisy:</th>
+         </tr>
+         <tr>
+             <td colspan="2" id="remises">0</td>
+         </tr>
+       </table>   
+        </section>
+        <button id="btn2" style="display:none" type="button" onclick="newround()">Nowa runda</button>
+    </body>
+</html>

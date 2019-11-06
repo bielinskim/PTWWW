@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Cwiczenia 04</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+    
+ function add()
+ {
+     /* var table = document.getElementById("table1");
+     var row = table.insertRow(-1);              
+     var cell1 = row.insertCell(0);               
+     var cell2 = row.insertCell(1);
+     cell1.innerHTML = document.getElementById("number").value;              tworzenie nowego wiersza za pomoca funkcji insertRow() i insertCell()
+     cell2.innerHTML = document.getElementById("title").value; */
+     var table = document.getElementById("table1");
+     var newtr = document.createElement("tr");
+     var newnumber = document.createElement("td");
+     var newtitle = document.createElement("td");
+     newnumber.innerHTML = document.getElementById("number").value;
+     newtr.appendChild(newnumber);
+     newtitle.innerHTML = document.getElementById("title").value;            //tworzenie nowego wiersza za pomoca funkcji appendChild()
+     newtr.appendChild(newtitle);
+     table.appendChild(newtr);
+ }
+ function deleteR(number)
+ {   
+     if(number>0&&document.getElementById("table1").rows.length>number)
+     {
+     var table = document.getElementById("table1");
+     table.deleteRow(number);
+     }
+     else
+     {
+          alert("Wprowadz poprawny numer");
+     }
+ }
+ function edit(number)
+ {
+     if(number>0&&document.getElementById("table1").rows.length>number)
+     {
+     var table = document.getElementById("table1");
+     table.deleteRow(number);
+     var newrow = table.insertRow(number);
+     var newcell1 = newrow.insertCell(0);               
+     var newcell2 = newrow.insertCell(1);
+     newcell1.innerHTML = document.getElementById("number4").value;
+     newcell2.innerHTML = document.getElementById("title2").value;
+     }
+     else
+     {
+          alert("Wprowadz poprawny numer");
+     }
+ }
+</script>
+</head>
+
+<body>
+
+<header>
+  <h1>Podstawy technologii WWW</h1>
+   <p>No to jesteśmy w DOM-u</p>
+</header>
+
+<section>
+  <nav>   
+     <a href="index.html">Strona główna</a>
+     <a style="background-color:#577284" href="subpage.html">Serial</a>
+     <a href="subpage2.html">Narzędzia</a>
+  </nav>
+  
+  <article>
+      <button id= 'btn5' type="button" onclick='document.getElementById("p").style.display="block"; 
+    document.getElementById("btn5").style.display = "none";'>Wyjasnienie</button>
+      <p id="p" style="display:none">Nie dodawalem wszystkich odcinkow, zajeloby to duzo czasu, wolalem ten czas poswiecic na poprawe szaty graficznej i funkcjonalnosci strony :-)</p>
+      <h3>Dragon Ball</h3>
+ <table id='table1' style="width:50%">
+  <tr>
+    <th class="numer">Odcinek</th>
+    <th class="tytul">Tytuł</th>
+  </tr>
+  <tr>
+    <td class="numer">1</td>
+    <td class="tytul">Wielka podróż</td>
+  </tr>
+  <tr>
+    <td class="numer">2</td>
+    <td class="tytul">Pierwsze kroki</td>
+  </tr>
+  <tr>
+    <td class="numer">3</td>
+    <td class="tytul">Naddźwiękowa chmurka Genialnego Żółwia</td>
+  </tr>
+  <tr>
+    <td class="numer">4</td>
+    <td class="tytul">Zły</td>
+  </tr>
+  <tr>
+    <td class="numer">5</td>
+    <td class="tytul">Yamcha(dziecko pustyni)</td>
+  </tr>
+</table> 
+ <h1>Dodaj wiersz: </h1>
+<input class="number" id='number' type="number" placeholder="Podaj numer odcinka...">
+<input id='title' type="text" placeholder="Podaj tytul odcinka...">
+<button id= 'btn' type="button" onclick="add()">Dodaj</button>
+<h1>Usuń wybrany wiersz: </h1>
+<input class="edit" id='number2' type="number" placeholder="Wprowadz numer wiersza ktory chcesz usunać...">
+<button id= 'btn2' type="button" onclick="deleteR(number2.value)">Usuń</button>
+<h1>Edytuj wybrany wiersz: </h1>
+<input class="edit" id='number3' type="number" placeholder="Wprowadz numer wiersza ktory chcesz edytować...">
+<input class="number" id='number4' type="number" placeholder="Podaj nowy numer odcinka...">
+<input id='title2' type="text" placeholder="Podaj nowy tytul odcinka...">
+<button id= 'btn3' type="button" onclick="edit(number3.value)">Edytuj</button>
+<p></p>
+<h3>Dragon Ball Z</h3>
+<table class="table2" style="width:50%">
+  <tr>
+    <th class="numer">Odcinek</th>
+    <th class="tytul">Tytuł</th>
+  </tr>
+  <tr>
+    <td class="numer">1</td>
+    <td class="tytul">Tajemniczy wojownik</td>
+  </tr>
+  <tr>
+    <td class="numer">2</td>
+    <td class="tytul">Dzieje Songa</td>
+  </tr>
+  <tr>
+    <td class="numer">3</td>
+    <td class="tytul">Bojowa drużyna</td>
+  </tr>
+  <tr>
+    <td class="numer">4</td>
+    <td class="tytul">Wrogowie sprzymierzeńcami</td>
+  </tr>
+  <tr>
+    <td class="numer">5</td>
+    <td class="tytul">Songo poświęca życie</td>
+  </tr>
+</table> 
+<p></p>
+<h3>Dragon Ball GT</h3>
+<table id="table3" style="width:50%">
+    <tr>
+    <th class="numer">Odcinek</th>
+    <th class="tytul">Tytuł</th>
+  </tr>
+  <tr>
+    <td class="numer">1</td>
+    <td class="tytul">Nowe wcielenie Songa</td>
+  </tr>
+  <tr>
+    <td class="numer">2</td>
+    <td class="tytul">Pan wylatuje w kosmos</td>
+  </tr>
+  <tr>
+    <td class="numer">3</td>
+    <td class="tytul">Olmek(planeta kupców)</td>
+  </tr>
+  <tr>
+    <td class="numer">4</td>
+    <td class="tytul">List gończy za Songiem</td>
+  </tr>
+  <tr>
+    <td class="numer">5</td>
+    <td class="tytul">Opuszczamy Olmek</td>
+  </tr>
+</table> 
+<p></p>
+  </article>
+</section>
+
+</body>
+</html>
